@@ -1,8 +1,8 @@
 # pylint: disable=import-outside-toplevel
-import gym
 from planarenvs.point_robot.envs.vel import PointRobotVelEnv
 from planarenvs.point_robot.envs.acc import PointRobotAccEnv
 import numpy as np
+import yaml
 
 from mpscenes.goals.goal_composition import GoalComposition
 from mpscenes.obstacles.sphere_obstacle import SphereObstacle
@@ -16,11 +16,17 @@ from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
 
 # Consider installing it with `poetry install -E scenes`.
 
+CONFIG_FILE = "point_robot_config.yaml"
+with open(CONFIG_FILE, 'r') as config_file:
+    config = yaml.safe_load(config_file)
+    CONFIG_PROBLEM = config['problem']
+    CONFIG_FABRICS = config['fabrics']
+
 DT = 0.01
 
 goal_dict = {
     "subgoal0": {
-        "weight": 8.0,
+        "weight": 1.0,
         "is_primary_goal": True,
         "indices": [0, 1],
         "parent_link": 0,
@@ -30,10 +36,10 @@ goal_dict = {
         "type": "staticSubGoal",
     },
 }
-goal = GoalComposition(name="goal", content_dict=goal_dict)
+goal = GoalComposition(name="goal", content_dict=CONFIG_PROBLEM["goal"]['goal_definition'])
 obst_dict = {
     "type": "sphere",
-    "geometry": {"position": [0.5, 0.7], "radius": 0.2},
+    "geometry": {"position": [0.5, 0.7, 0.0], "radius": 0.2},
 }
 obst_1 = SphereObstacle(name="simpleSphere", content_dict=obst_dict)
 LIMITS = {
@@ -60,11 +66,19 @@ def set_planner(goal: GoalComposition):
     collision_geometry = "-2.0 / (x ** 1) * xdot ** 2"
     collision_finsler = "1.0/(x**2) * (1 - ca.heaviside(xdot))* xdot**2"
     limit_geometry: str = (
-        "-0.1 / (x ** 1) * xdot ** 2"
+        "-10.1 / (x ** 1) * xdot ** 2"
     )
     limit_finsler: str = (
         "1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot**2"
     )
+    damper_beta: str = (
+        "0.5 * (ca.tanh(-0.5 * (ca.norm_2(x) - 0.02)) + 1) * 6.5 + 0.01 + ca.fmax(0, sym('a_ex') - sym('a_le'))"
+    )
+    damper_eta: str = (
+        "0.5 * (ca.tanh(-0.9 * (1 - 1/2) * ca.dot(xdot, xdot) - 0.5) + 1)"
+    )
+    damper_beta = "0"
+    damper_eta = "1"
     forward_kinematics = PointFk()
     planner = ParameterizedFabricPlanner(
         degrees_of_freedom,
@@ -73,6 +87,8 @@ def set_planner(goal: GoalComposition):
         collision_finsler=collision_finsler,
         limit_geometry=limit_geometry,
         limit_finsler=limit_finsler,
+        damper_beta=damper_beta,
+        damper_eta=damper_eta,
     )
     collision_links = [1]
     # The planner hides all the logic behind the function set_components.
@@ -81,12 +97,16 @@ def set_planner(goal: GoalComposition):
         [LIMITS["low"][0], LIMITS["high"][0]],
         [LIMITS["low"][1], LIMITS["high"][1]],
     ]
+    """
     planner.set_components(
         collision_links=collision_links,
         goal=goal,
         number_obstacles=1,
         limits=limits_as_array,
     )
+    """
+    planner.load_fabrics_configuration(CONFIG_FABRICS)
+    planner.load_problem_configuration(CONFIG_PROBLEM)
     planner.concretize()
     return planner
 
@@ -101,7 +121,7 @@ def run_point_robot(
 ):
     env = PointRobotAccEnv(render=render, dt=DT)
     init_pos = np.array([0.0, 0.0])
-    init_vel = np.array([0.0, 0.0])
+    init_vel = np.array([1.0, 0.0])
     ob = env.reset(pos=init_pos, vel=init_vel)
     env.reset_limits(pos=LIMITS)
 
@@ -121,6 +141,8 @@ def run_point_robot(
     observation_history = []
     for i in range(n_steps):
         action = time_variant_action(env.t())
+        qdot = ob['joint_state']['velocity'],
+        print(np.linalg.norm(qdot))
         arguments = {
             'q' : ob['joint_state']['position'],
             'qdot' : ob['joint_state']['velocity'],
