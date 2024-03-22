@@ -2,11 +2,11 @@ problem:
   environment:
     number_cuboids:
       dynamic: 0
-      static: 0
+      static: 2
     number_planes: 0
     number_spheres:
       dynamic: 0
-      static: 1
+      static: 2
   goal:
     goal_definition:
       subgoal0:
@@ -14,7 +14,7 @@ problem:
         desired_position:
         - -0.5
         - 0.8
-        epsilon: 0.05
+        epsilon: 0.1
         indices:
         - 0
         - 1
@@ -22,13 +22,15 @@ problem:
         parent_link: 0
         type: staticSubGoal
         weight: 1.0
+        low: [-5, -3]
+        high: [5, 3]
   joint_limits:
     lower_limits:
-    - -2.0
-    - -2.0
+    - -15.0
+    - -10.0
     upper_limits:
-    - 2.0
-    - 2.0
+    - 15.0
+    - 10.0
   robot_representation:
     collision_links:
       1:
@@ -36,9 +38,9 @@ problem:
           radius: 0.1
     self_collision_pairs: {}
 fabrics:
-  limit_geometry: -1.0 / (x ** 1) * xdot ** 2
+  limit_geometry: -0.5 / (x ** 1) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2
   limit_finsler: 1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot**2
-  collision_geometry: -0.2 / (x ** 1) * xdot ** 2
-  collision_finsler:  0.2/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2
-  forcing_type: 'forced-energized'
+  collision_geometry: -1.2 / (x ** 1) * xdot ** 2
+  collision_finsler:  1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2
+  forcing_type: 'speed-controlled'
 

@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.8,<3.10"
 fabrics = {git = "https://github.com/tud-amr/fabrics.git", rev = "ft-load-from-yaml"}
 planarenvs = "^1.4.0"
+matplotlib = "<=3.75"
 
 
 [build-system]
