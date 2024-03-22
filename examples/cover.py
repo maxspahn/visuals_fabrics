@@ -21,7 +21,7 @@ from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
 
 # Consider installing it with `poetry install -E scenes`.
 
-CONFIG_FILE = "point_robot_config.yaml"
+CONFIG_FILE = "cover_config.yaml"
 with open(CONFIG_FILE, 'r') as config_file:
     config = yaml.safe_load(config_file)
     CONFIG_PROBLEM = config['problem']
