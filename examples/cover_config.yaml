@@ -2,11 +2,11 @@ problem:
   environment:
     number_cuboids:
       dynamic: 0
-      static: 2
+      static: 4
     number_planes: 0
     number_spheres:
       dynamic: 0
-      static: 2
+      static: 3
   goal:
     goal_definition:
       subgoal0:
