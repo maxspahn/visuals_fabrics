@@ -7,7 +7,7 @@ import numpy as np
 import yaml
 
 import matplotlib.pyplot as plt
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox, bbox_artist
 
 
 from mpscenes.goals.goal_composition import GoalComposition
@@ -25,7 +25,7 @@ from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
 obstacle_color = 'none'
 obstacle_edge_color = 'none'
 
-CONFIG_FILE = "cover_config.yaml"
+CONFIG_FILE = "invite_config.yaml"
 with open(CONFIG_FILE, 'r') as config_file:
     config = yaml.safe_load(config_file)
     CONFIG_PROBLEM = config['problem']
@@ -35,20 +35,28 @@ DT = 0.01
 
 default_goal = GoalComposition(name="goal", content_dict=CONFIG_PROBLEM["goal"]['goal_definition'])
 obst_dict = {
-    "type": "sphere",
-    "geometry": {"position": [-11.0, -6.0, 0.0], "radius": 6.0},
+    "type": "box",
+    "geometry": {
+        "position": [0.0, 6, 0.0],
+        "length": 5.0,
+        "width": 1.0,
+    },
 }
-obst_0 = SphereObstacle(name="simpleSphere", content_dict=obst_dict)
-obst_dict = {
-    "type": "sphere",
-    "geometry": {"position": [5.5, -5.0, 0.0], "radius": 3.0},
-}
-obst_1 = SphereObstacle(name="simpleSphere", content_dict=obst_dict)
+obst_0 = BoxObstacle(name="simpleBox", content_dict=obst_dict)
 obst_dict = {
     "type": "box",
     "geometry": {
-        "position": [9.5, -7, 0.0],
+        "position": [0.0, 3.0, 0.0],
         "length": 8.0,
+        "width": 1.0,
+    },
+}
+obst_1 = BoxObstacle(name="simpleBox", content_dict=obst_dict)
+obst_dict = {
+    "type": "box",
+    "geometry": {
+        "position": [0.0, -0.5, 0.0],
+        "length": 3.5,
         "width": 2.0,
     },
 }
@@ -56,58 +64,32 @@ obst_2 = BoxObstacle(name="simpleBox", content_dict=obst_dict)
 obst_dict = {
     "type": "box",
     "geometry": {
-        "position": [7.5, 8.5, 0.0],
-        "length": 11,
-        "width": 6,
+        "position": [0, -6, 0.0],
+        "length": 3.5,
+        "width": 1,
     },
 }
 obst_3 = BoxObstacle(name="simpleBox", content_dict=obst_dict)
 obst_dict = {
-    "type": "box",
+    "type": "sphere",
     "geometry": {
-        "position": [0, 4.0, 0.0],
-        "length": 1,
-        "width": 9.5,
+        "position": [-6, 7.5, 0.0],
+        "radius": 1
     },
 }
-obst_4 = BoxObstacle(name="simpleBox", content_dict=obst_dict)
-obst_dict = {
-    "type": "box",
-    "geometry": {
-        "position": [0, -7.1, 0.0],
-        "length": 1,
-        "width": 3,
-    },
-}
-obst_5 = BoxObstacle(name="simpleBox", content_dict=obst_dict)
+obst_4 = SphereObstacle(name="simpleBox", content_dict=obst_dict)
 LIMITS = {
     "high": np.array(CONFIG_PROBLEM['joint_limits']['upper_limits']),
     "low": np.array(CONFIG_PROBLEM['joint_limits']['lower_limits']),
 }
-obst_dict = {
-    "type": "sphere",
-    "geometry": {"position": [0.8, 1.0, 0.0], "radius": 1.8},
-}
-obst_6 = SphereObstacle(name="simpleSphere", content_dict=obst_dict)
 
 user_defined_initial_positions = [
-    np.array([-3, 3]),
-    np.array([11.3, 2.7]),
-    np.array([10.7, -3]),
-    np.array([-10, 4]),
-    np.array([-6, 7.1]),
+    np.array([-2.7, -5]),
+    np.array([-3.3, -1.0]),
 ]
 user_defined_goal_positions = [
-    np.array([-13, 7.3]),
-    np.array([-2, -8]),
-    np.array([8, -1]),
-    np.array([-14, 0]),
-    np.array([-4, 8.5]),
-    np.array([-4, -1]),
-    np.array([3, -9]),
-    np.array([-14, 0]),
-    #    np.array([14, -9]),
-    #np.array([14, 7]),
+    np.array([5, 1.0]),
+    np.array([3.5, 6.7]),
 ]
 
 def set_planner(goal: GoalComposition):
@@ -188,8 +170,6 @@ def run_point_robot(
     env.add_obstacle(obst_2)
     env.add_obstacle(obst_3)
     env.add_obstacle(obst_4)
-    env.add_obstacle(obst_5)
-    env.add_obstacle(obst_6)
     env.add_goal(goal.sub_goals()[0])
     full_sensor = FullSensor(
         ['position', 'weight'],
@@ -214,7 +194,7 @@ def run_point_robot(
         arguments['qdot'] = ob['joint_state']['velocity']
         action = planner.compute_action(**arguments)
         ob, reward, terminated, info = env.step(action)
-        if terminated or break_condition(q[i, :], action, goal):
+        if terminated:
             return q
     print(arguments['x_goal_0'])
     print(q[0, :])
@@ -235,13 +215,10 @@ def break_condition(q, action, goal):
 def position_in_collision(goal_location):
 
     return (
-            np.linalg.norm(goal_location - obst_0.position()[0:2]) < goal.primary_goal().epsilon() + obst_0.radius() or
-            np.linalg.norm(goal_location - obst_1.position()[0:2]) < goal.primary_goal().epsilon() + obst_1.radius() or
-            np.linalg.norm(goal_location - obst_6.position()[0:2]) < goal.primary_goal().epsilon() + obst_6.radius() or
+            np.linalg.norm(goal_location - obst_0.position()[0:2]) < goal.primary_goal().epsilon() + obst_0.size()[0] or
+            np.linalg.norm(goal_location - obst_1.position()[0:2]) < goal.primary_goal().epsilon() + obst_1.size()[0] or
             np.linalg.norm(goal_location - obst_2.position()[0:2]) < goal.primary_goal().epsilon() + obst_2.size()[0] or
-            np.linalg.norm(goal_location - obst_3.position()[0:2]) < goal.primary_goal().epsilon() + obst_3.size()[0] or
-            np.linalg.norm(goal_location - obst_4.position()[0:2]) < goal.primary_goal().epsilon() + obst_4.size()[0] or
-            np.linalg.norm(goal_location - obst_5.position()[0:2]) < goal.primary_goal().epsilon() + obst_5.size()[0]
+            np.linalg.norm(goal_location - obst_3.position()[0:2]) < goal.primary_goal().epsilon() + obst_3.size()[0]
     )
 
 def compose_goal(goal_location):
@@ -255,20 +232,16 @@ def get_arguments(goal):
         'x_goal_0': goal.primary_goal().position(),
         'weight_goal_0': goal.primary_goal().weight(),
         'radius_body_1': 0.1,
-        'x_obst_0': obst_0.position(),
-        'radius_obst_0': obst_0.radius(),
-        'x_obst_1': obst_1.position(),
-        'radius_obst_1': obst_1.radius(),
-        'x_obst_2': obst_6.position(),
-        'radius_obst_2': obst_6.radius(),
+        'x_obst_0': obst_4.position(),
+        'radius_obst_0': obst_4.size(),
+        'x_obst_1': obst_0.position(),
+        'sizes_obst_1': obst_0.size(),
+        'x_obst_2': obst_1.position(),
+        'sizes_obst_2': obst_1.size(),
         'x_obst_3': obst_2.position(),
         'sizes_obst_3': obst_2.size(),
         'x_obst_4': obst_3.position(),
         'sizes_obst_4': obst_3.size(),
-        'x_obst_5': obst_4.position(),
-        'sizes_obst_5': obst_4.size(),
-        'x_obst_6': obst_5.position(),
-        'sizes_obst_6': obst_5.size(),
     }
     return arguments
 
@@ -340,15 +313,15 @@ def add_obstacle_box(ax, obstacle):
         facecolor=obstacle_color
     ))
 
-def add_text(ax, text, position, fontsize=5, rotation=0):
+def add_text(ax, text, position, fontsize=5, rotation=0, fontweight='normal'):
     ax.text(
         position[0],
         position[1],
         text,
         color='white',
-        fontsize=fontsize,
+        fontsize=fontsize*4,
         fontfamily='Montserrat',
-        fontweight='bold',
+        fontweight=fontweight,
         ha='center',
         va='center',
         rotation=rotation,
@@ -374,17 +347,18 @@ def insert_png(ax, image_path, position, size):
 def plot_trajectories(file_path: str):
     trajectories = np.load(file_path, allow_pickle=True)
     not_plotting_indices = [32, 33, 34, 35, 40, 41, 61, 62, 63]
+    not_plotting_indices = []
     for i, index in enumerate(not_plotting_indices):
         trajectories = np.delete(trajectories, index-i, axis=0)
 
-    fig, ax = plt.subplots(facecolor='black')
+    fig, ax = plt.subplots(figsize=(10 ,14), facecolor='black')
     ax.set_facecolor('black')
     N = len(trajectories)
     blue_colors = plt.cm.Blues(np.linspace(0.2, 1, N))
 
     for i, trajectory in enumerate(trajectories):
         q = trajectory[np.linalg.norm(trajectory, axis=1) > 1e-5]
-        ax.plot(q[:, 0], q[:, 1], color=blue_colors[i], linewidth=0.3)
+        ax.plot(q[:, 0], q[:, 1], color=blue_colors[i], linewidth=1.5)
     plt.xlim(LIMITS["low"][0] - 0.1, LIMITS["high"][0] + 0.1)
     plt.ylim(LIMITS["low"][1]- 0.1, LIMITS["high"][1] + 0.1)
     # plot box for limits
@@ -395,27 +369,32 @@ def plot_trajectories(file_path: str):
     ax.plot([LIMITS["low"][0], LIMITS["high"][0]], [LIMITS["high"][1], LIMITS["high"][1]], 'k', color='white')
     """
 
-    #add_obstacle_circulare(ax, obst_0)
-    #add_obstacle_with_blur(ax, obst_0)
-    #add_obstacle_with_blur(ax, obst_1)
-    #add_obstacle_with_blur(ax, obst_6)
-
-
+    add_obstacle_box(ax, obst_0)
+    add_obstacle_box(ax, obst_1)
     add_obstacle_box(ax, obst_2)
-    add_text(ax, "Max Spahn", obst_2.position()[0:2], fontsize=4)
     add_obstacle_box(ax, obst_3)
-    title = "Trajectory Generation for Mobile\nManipulators through Differential Geometry"
-    subtitle = "Behavior Encoding beyond Model Predictive Control"
-    title_position = [obst_3.position()[0], obst_3.position()[1] - 1]
-    subtitle_position = [obst_3.position()[0], obst_3.position()[1] - 2]
+    #add_obstacle_circulare(ax, obst_4)
 
-    add_text(ax, title, title_position)
-    add_text(ax, subtitle, subtitle_position, fontsize=4)
 
-    add_text(ax, "Max Spahn", obst_5.position()[0:2], fontsize=2.5, rotation=-90)
-    add_text(ax, title.replace('\n', ' '), obst_4.position()[0:2], fontsize=2.5, rotation=-90)
-    add_obstacle_box(ax, obst_4)
-    add_obstacle_box(ax, obst_5)
+
+    add_text(ax, "Invitation to the public defense\nof my PhD thesis", obst_0.position()[0:2], fontsize=4)
+
+    title = "Trajectory Generation for Mobile\nManipulators with Differential Geometry"
+    title_position = [obst_1.position()[0], obst_1.position()[1] + 1.0]
+    add_text(ax, title, title_position, fontweight='bold', fontsize=4.7)
+
+    info = "11 December 2024\nDefense: 17:30\nLayperson's talk: 17:00\nSenaatszaal\nAula Conference Center\nTU Delft"
+    info_position = obst_2.position()
+    add_text(ax, info, info_position, fontsize=3.5)
+
+    name = "Max Spahn"
+    email = "m.spahn@tudelft.nl"
+    name_position = [obst_3.position()[0], obst_3.position()[1] + 0.85]
+    email_position = [obst_3.position()[0], obst_3.position()[1] + 0.45]
+    add_text(ax, name, name_position)
+    add_text(ax, email, email_position, fontsize=4)
+
+
     for goal in user_defined_goal_positions:
         # color metalic orange
         rgb = np.array([234, 162, 33])/255
@@ -451,10 +430,9 @@ def plot_trajectories(file_path: str):
             ))
     ax.axis('equal')
 
-    albert_position = [obst_0.position()[0], obst_0.position()[1] + 1]
-    insert_png(ax, "albert_sketch.png", albert_position, [0.067])
     # save as vector graphics
-    plt.savefig("cover_spahn.svg", format='svg', dpi=1200)
+    plt.savefig("invite_spahn.svg", format='svg', dpi=1200, bbox_inches='tight')
+    plt.savefig("invite_spahn.png", format='png', dpi=100, bbox_inches='tight')
 
     #plt.show()
 
@@ -463,7 +441,7 @@ def generate_trajectories(n_trajectories: int = 10, n_steps: int = 1000, render:
     trajectories = []
     vel_mag = 3
     n_start = 15
-    n_goal = 10
+    n_goal = 15
     initial_positions = []
     initial_velocities = []
     initial_position = np.zeros(2)
@@ -519,7 +497,7 @@ def generate_trajectories(n_trajectories: int = 10, n_steps: int = 1000, render:
             )
             trajectories.append(trajectory)
     # save trajectories 
-    with open('setups.yaml', 'w') as file:
+    with open('setups_invite.yaml', 'w') as file:
         yaml.dump(setups, file)
     np.save(filename, trajectories)
 
