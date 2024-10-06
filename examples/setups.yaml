@@ -1,0 +1,750 @@
+0:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - 3.0
+  - 0.0
+1:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - 2.7406363729278027
+  - 1.2202099292274005
+2:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - 2.0073918190765747
+  - 2.2294344764321825
+3:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - 0.9270509831248424
+  - 2.8531695488854605
+4:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - -0.31358538980296
+  - 2.98356568610482
+5:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - -1.4999999999999993
+  - 2.598076211353316
+6:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - -2.427050983124842
+  - 1.7633557568774196
+7:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - -2.934442802201417
+  - 0.623735072453278
+8:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - -2.934442802201417
+  - -0.6237350724532772
+9:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - -2.427050983124843
+  - -1.7633557568774192
+10:
+  goal:
+  - -13.0
+  - 7.3
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - -1.5000000000000013
+  - -2.598076211353315
+11:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - -0.3135853898029627
+  - -2.9835656861048196
+12:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - 0.9270509831248417
+  - -2.853169548885461
+13:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - 2.0073918190765756
+  - -2.229434476432182
+14:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - -3
+  - 3
+  initial_velocity:
+  - 2.7406363729278027
+  - -1.2202099292274005
+15:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - 3.0
+  - 0.0
+16:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - 2.7406363729278027
+  - 1.2202099292274005
+17:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - 2.0073918190765747
+  - 2.2294344764321825
+18:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - 0.9270509831248424
+  - 2.8531695488854605
+19:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - -0.31358538980296
+  - 2.98356568610482
+20:
+  goal:
+  - -2.0
+  - -8.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - -1.4999999999999993
+  - 2.598076211353316
+21:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - -2.427050983124842
+  - 1.7633557568774196
+22:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - -2.934442802201417
+  - 0.623735072453278
+23:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - -2.934442802201417
+  - -0.6237350724532772
+24:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - -2.427050983124843
+  - -1.7633557568774192
+25:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - -1.5000000000000013
+  - -2.598076211353315
+26:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - -0.3135853898029627
+  - -2.9835656861048196
+27:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - 0.9270509831248417
+  - -2.853169548885461
+28:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - 2.0073918190765756
+  - -2.229434476432182
+29:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 11.3
+  - 2.7
+  initial_velocity:
+  - 2.7406363729278027
+  - -1.2202099292274005
+30:
+  goal:
+  - 8.0
+  - -1.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - 3.0
+  - 0.0
+31:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - 2.7406363729278027
+  - 1.2202099292274005
+32:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - 2.0073918190765747
+  - 2.2294344764321825
+33:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - 0.9270509831248424
+  - 2.8531695488854605
+34:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - -0.31358538980296
+  - 2.98356568610482
+35:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - -1.4999999999999993
+  - 2.598076211353316
+36:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - -2.427050983124842
+  - 1.7633557568774196
+37:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - -2.934442802201417
+  - 0.623735072453278
+38:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - -2.934442802201417
+  - -0.6237350724532772
+39:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - -2.427050983124843
+  - -1.7633557568774192
+40:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - -1.5000000000000013
+  - -2.598076211353315
+41:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - -0.3135853898029627
+  - -2.9835656861048196
+42:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - 0.9270509831248417
+  - -2.853169548885461
+43:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - 2.0073918190765756
+  - -2.229434476432182
+44:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - 10.7
+  - -3.0
+  initial_velocity:
+  - 2.7406363729278027
+  - -1.2202099292274005
+45:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - 3.0
+  - 0.0
+46:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - 2.7406363729278027
+  - 1.2202099292274005
+47:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - 2.0073918190765747
+  - 2.2294344764321825
+48:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - 0.9270509831248424
+  - 2.8531695488854605
+49:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - -0.31358538980296
+  - 2.98356568610482
+50:
+  goal:
+  - -4.0
+  - 8.5
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - -1.4999999999999993
+  - 2.598076211353316
+51:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - -2.427050983124842
+  - 1.7633557568774196
+52:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - -2.934442802201417
+  - 0.623735072453278
+53:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - -2.934442802201417
+  - -0.6237350724532772
+54:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - -2.427050983124843
+  - -1.7633557568774192
+55:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - -1.5000000000000013
+  - -2.598076211353315
+56:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - -0.3135853898029627
+  - -2.9835656861048196
+57:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - 0.9270509831248417
+  - -2.853169548885461
+58:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - 2.0073918190765756
+  - -2.229434476432182
+59:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -10
+  - 4
+  initial_velocity:
+  - 2.7406363729278027
+  - -1.2202099292274005
+60:
+  goal:
+  - -4.0
+  - -1.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - 3.0
+  - 0.0
+61:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - 2.7406363729278027
+  - 1.2202099292274005
+62:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - 2.0073918190765747
+  - 2.2294344764321825
+63:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - 0.9270509831248424
+  - 2.8531695488854605
+64:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - -0.31358538980296
+  - 2.98356568610482
+65:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - -1.4999999999999993
+  - 2.598076211353316
+66:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - -2.427050983124842
+  - 1.7633557568774196
+67:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - -2.934442802201417
+  - 0.623735072453278
+68:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - -2.934442802201417
+  - -0.6237350724532772
+69:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - -2.427050983124843
+  - -1.7633557568774192
+70:
+  goal:
+  - 3.0
+  - -9.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - -1.5000000000000013
+  - -2.598076211353315
+71:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - -0.3135853898029627
+  - -2.9835656861048196
+72:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - 0.9270509831248417
+  - -2.853169548885461
+73:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - 2.0073918190765756
+  - -2.229434476432182
+74:
+  goal:
+  - -14.0
+  - 0.0
+  initial_position:
+  - -6.0
+  - 7.1
+  initial_velocity:
+  - 2.7406363729278027
+  - -1.2202099292274005

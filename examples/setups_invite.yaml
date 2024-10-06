@@ -1,0 +1,300 @@
+0:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - 3.0
+  - 0.0
+1:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - 2.7406363729278027
+  - 1.2202099292274005
+2:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - 2.0073918190765747
+  - 2.2294344764321825
+3:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - 0.9270509831248424
+  - 2.8531695488854605
+4:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - -0.31358538980296
+  - 2.98356568610482
+5:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - -1.4999999999999993
+  - 2.598076211353316
+6:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - -2.427050983124842
+  - 1.7633557568774196
+7:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - -2.934442802201417
+  - 0.623735072453278
+8:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - -2.934442802201417
+  - -0.6237350724532772
+9:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - -2.427050983124843
+  - -1.7633557568774192
+10:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - -1.5000000000000013
+  - -2.598076211353315
+11:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - -0.3135853898029627
+  - -2.9835656861048196
+12:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - 0.9270509831248417
+  - -2.853169548885461
+13:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - 2.0073918190765756
+  - -2.229434476432182
+14:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -2.7
+  - -5.0
+  initial_velocity:
+  - 2.7406363729278027
+  - -1.2202099292274005
+15:
+  goal:
+  - 5.0
+  - 1.0
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - 3.0
+  - 0.0
+16:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - 2.7406363729278027
+  - 1.2202099292274005
+17:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - 2.0073918190765747
+  - 2.2294344764321825
+18:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - 0.9270509831248424
+  - 2.8531695488854605
+19:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - -0.31358538980296
+  - 2.98356568610482
+20:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - -1.4999999999999993
+  - 2.598076211353316
+21:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - -2.427050983124842
+  - 1.7633557568774196
+22:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - -2.934442802201417
+  - 0.623735072453278
+23:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - -2.934442802201417
+  - -0.6237350724532772
+24:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - -2.427050983124843
+  - -1.7633557568774192
+25:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - -1.5000000000000013
+  - -2.598076211353315
+26:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - -0.3135853898029627
+  - -2.9835656861048196
+27:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - 0.9270509831248417
+  - -2.853169548885461
+28:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - 2.0073918190765756
+  - -2.229434476432182
+29:
+  goal:
+  - 3.5
+  - 6.7
+  initial_position:
+  - -3.3
+  - -1.0
+  initial_velocity:
+  - 2.7406363729278027
+  - -1.2202099292274005

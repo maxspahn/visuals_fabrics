@@ -381,6 +381,7 @@ def plot_trajectories(file_path: str):
     ax.set_facecolor('black')
     N = len(trajectories)
     blue_colors = plt.cm.Blues(np.linspace(0.2, 1, N))
+    blue_colors_rgb = np.array([blue_colors[:, 0], blue_colors[:, 1], blue_colors[:, 2]]).T * 255
 
     for i, trajectory in enumerate(trajectories):
         q = trajectory[np.linalg.norm(trajectory, axis=1) > 1e-5]
@@ -402,7 +403,7 @@ def plot_trajectories(file_path: str):
 
 
     add_obstacle_box(ax, obst_2)
-    add_text(ax, "Max Spahn", obst_2.position()[0:2], fontsize=4)
+    add_text(ax, "Max Spahn", [obst_2.position()[0]+0.5, obst_2.position()[1]], fontsize=4)
     add_obstacle_box(ax, obst_3)
     title = "Trajectory Generation for Mobile\nManipulators through Differential Geometry"
     subtitle = "Behavior Encoding beyond Model Predictive Control"
@@ -412,8 +413,8 @@ def plot_trajectories(file_path: str):
     add_text(ax, title, title_position)
     add_text(ax, subtitle, subtitle_position, fontsize=4)
 
-    add_text(ax, "Max Spahn", obst_5.position()[0:2], fontsize=2.5, rotation=-90)
-    add_text(ax, title.replace('\n', ' '), obst_4.position()[0:2], fontsize=2.5, rotation=-90)
+    add_text(ax, "Max Spahn", obst_5.position()[0:2], fontsize=3.0, rotation=-90)
+    add_text(ax, title.replace('\n', ' '), [obst_4.position()[0], obst_4.position()[1]-0.3], fontsize=3.0, rotation=-90)
     add_obstacle_box(ax, obst_4)
     add_obstacle_box(ax, obst_5)
     for goal in user_defined_goal_positions:
@@ -452,7 +453,9 @@ def plot_trajectories(file_path: str):
     ax.axis('equal')
 
     albert_position = [obst_0.position()[0], obst_0.position()[1] + 1]
-    insert_png(ax, "albert_sketch.png", albert_position, [0.067])
+    insert_png(ax, "albert_contours.png", albert_position, [0.040])
+    dinova_position = [obst_1.position()[0] - 0.5, obst_1.position()[1] - 1.0]
+    insert_png(ax, "dinova_contours.png", dinova_position, [0.037])
     # save as vector graphics
     plt.savefig("cover_spahn.svg", format='svg', dpi=1200)
 
