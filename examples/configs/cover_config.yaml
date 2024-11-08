@@ -1,0 +1,179 @@
+problem:
+  environment:
+    number_cuboids:
+      dynamic: 0
+      static: 4
+    number_planes: 0
+    number_spheres:
+      dynamic: 0
+      static: 3
+  goal:
+    goal_definition:
+      subgoal0:
+        child_link: 1
+        desired_position:
+        - -0.5
+        - 0.8
+        epsilon: 0.1
+        indices:
+        - 0
+        - 1
+        is_primary_goal: true
+        parent_link: 0
+        type: staticSubGoal
+        weight: 1.0
+        low: [-5, -3]
+        high: [5, 3]
+  joint_limits:
+    lower_limits:
+    - -17.361
+    - -12.2
+    upper_limits:
+    - 17.361
+    - 12.2
+  robot_representation:
+    collision_links:
+      1:
+        sphere:
+          radius: 0.1
+    self_collision_pairs: {}
+fabrics:
+  limit_geometry: -0.5 / (x ** 1) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2
+  limit_finsler: 1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot**2
+  collision_geometry: -1.2 / (x ** 1) * xdot ** 2
+  collision_finsler:  1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2
+  forcing_type: 'speed-controlled'
+obstacles:
+  sphere_0:
+    geometry:
+      position:
+      - -11.0
+      - -5.0
+      - 0.0
+      radius: 5.0
+    type: sphere
+  sphere_1:
+    geometry:
+      position:
+      - 5.5
+      - -7.0
+      - 0.0
+      radius: 3.0
+    type: sphere
+  sphere_2:
+    geometry:
+      position:
+      - 2.2
+      - 1.0
+      - 0.0
+      radius: 1.4
+    type: sphere
+  box_0:
+    geometry:
+      length: 8.0
+      position:
+      - 9.061
+      - -7.0
+      - 0.0
+      width: 2.0
+    type: box
+  box_1:
+    geometry:
+      length: 11
+      position:
+      - 9.061
+      - 8.5
+      - 0.0
+      width: 6
+    type: box
+  box_2:
+    geometry:
+      length: 1
+      position:
+      - 0
+      - 4.0
+      - 0.0
+      width: 9.5
+    type: box
+  box_3:
+    geometry:
+      position:
+      - 0
+      - -7.1
+      - 0.0
+      length: 1
+      width: 3
+    type: box
+setup:
+  start_list:
+    - [-3.5322, 3.4322]
+    - [14.1288, 3.08898]
+    - [13.77558, -3.4322]
+    - [-11.774, 4.57626667]
+    - [-7.0644, 8.12287333]
+  goal_list:
+    - [-15.3062, 8.35168667]
+    - [-2.3548, -9.15253333]
+    - [9.4192, -1.14406667]
+    - [-16.4836, 0.0]
+    - [-4.7096, 9.72456667]
+    - [-4.7096, -1.14406667]
+    - [3.5322, -10.2966]
+    - [-16.4836, 0.0]
+  vel_mag: 3
+  n_start: 15
+  n_goal: 10
+visuals:
+  author:
+    text: "Max Spahn"
+    position:
+      obstacle_name: box_0
+      offset: [0, 0]
+    fontsize: 16
+    rotation: 0
+  author_side:
+    text: "Max Spahn"
+    position:
+      obstacle_name: box_3
+      offset: [0, 0]
+    fontsize: 8.5
+    rotation: -90
+  title_side:
+    text : "Trajectory Generation for Mobile Manipulators with Differential Geometry"
+    position:
+      obstacle_name: box_2
+      offset: [0, -0.5]
+    fontsize: 8.5
+    rotation: -90
+  title:
+    text : "Trajectory Generation for Mobile\nManipulators with Differential\nGeometry"
+    position:
+      obstacle_name: box_1
+      offset: [0, 1.0]
+    fontsize: 21
+    rotation: 0
+  subtitle:
+    text : "Behavior Encoding beyond\nModel Predictive Control"
+    position:
+      obstacle_name: box_1
+      offset: [0, -2]
+    fontsize: 15
+    rotation: 0
+  albert:
+    img: "img/albert_contours.png"
+    position:
+      obstacle_name: sphere_0
+      offset: [0, 0]
+    scale: 0.09
+  dinova:
+    img: "img/dinova_contours.png"
+    position:
+      obstacle_name: sphere_1
+      offset: [-0.5, 0.7]
+    scale: 0.08
+  panda_hand:
+    img: "img/panda_hand_contours.png"
+    position:
+      obstacle_name: sphere_2
+      offset: [0, 0.5]
+    scale: 0.14

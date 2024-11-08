@@ -1,0 +1,142 @@
+problem:
+  environment:
+    number_cuboids:
+      dynamic: 0
+      static: 3
+    number_planes: 0
+    number_spheres:
+      dynamic: 0
+      static: 1
+  goal:
+    goal_definition:
+      subgoal0:
+        child_link: 1
+        desired_position:
+        - -0.5
+        - 0.8
+        epsilon: 0.1
+        indices:
+        - 0
+        - 1
+        is_primary_goal: true
+        parent_link: 0
+        type: staticSubGoal
+        weight: 1.0
+        low: [-5, -3]
+        high: [5, 3]
+  joint_limits:
+    lower_limits:
+    - -2.9
+    - -12.2
+    upper_limits:
+    - 2.9
+    - 12.2
+  robot_representation:
+    collision_links:
+      1:
+        sphere:
+          radius: 0.1
+    self_collision_pairs: {}
+fabrics:
+  limit_geometry: -0.5 / (x ** 1) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2
+  limit_finsler: 1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot**2
+  collision_geometry: -1.2 / (x ** 1) * xdot ** 2
+  collision_finsler:  1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2
+  forcing_type: 'speed-controlled'
+obstacles:
+  sphere_0:
+    geometry:
+      position:
+      - 0
+      - -6.0
+      - 0.0
+      radius: 1.0
+    type: sphere
+  box_0:
+    geometry:
+      length: 5.0
+      position:
+      - 0
+      - 10
+      - 0.0
+      width: 2.0
+    type: box
+  box_1:
+    geometry:
+      length: 5.5
+      position:
+      - 0
+      - -0.5
+      - 0.0
+      width: 3
+    type: box
+  box_2:
+    geometry:
+      length: 4.5
+      position:
+      - 0
+      - -9
+      - 0.0
+      width: 1
+    type: box
+  box_3:
+    geometry:
+      length: 4.0
+      position:
+      - 0.0
+      - 5.0
+      - 0.0
+      width: 4.0
+    type: box
+setup:
+  start_list:
+    - [-1.8, 8.5]
+    - [2, -11.5]
+  goal_list:
+    - [-0, 2.3]
+    - [-1.5, -7]
+  vel_mag: 1
+  n_start: 15
+  n_goal: 10
+visuals:
+  author:
+    text: "Invitation to the\npublic defense\nof my PhD thesis"
+    position:
+      obstacle_name: box_0
+      offset: [0, 0]
+    fontsize: 13
+    rotation: 0
+    fontweight: 'normal'
+  author_side:
+    text: "Max Spahn\nm.spahn@tudelft.nl"
+    position:
+      obstacle_name: box_2
+      offset: [0, 0]
+    fontsize: 13
+    rotation: 0
+    fontweight: 'normal'
+  title_side:
+    text : "Trajectory\nGeneration\nfor Mobile\nManipulators\nwith Differential\nGeometry"
+    position:
+      obstacle_name: box_3
+      offset: [0, 0]
+    fontsize: 13
+    fontweight: 'bold'
+    rotation: 0
+  title:
+    text : "11 December 2024\nDefense: 17:30\nLayperson's talk: 17:00\nSenaatszaal\nAula Conference Center\nTU Delft"
+    position:
+      obstacle_name: box_1
+      offset: [0, 0]
+    fontsize: 13
+    rotation: 0
+    fontweight: 'normal'
+  albert:
+    img: "img/albert_contours.png"
+    position:
+      obstacle_name: sphere_0
+      offset: [0, 0]
+    scale: 0.04
+
+
+
