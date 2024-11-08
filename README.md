@@ -1,5 +1,6 @@
 # Fabrics visuals for defense
 
-![Fabrics visuals for defense](examples/invite_spahn.png)
+![Fabrics visuals for defense invite](examples/outputs/invite.svg)
+![Fabrics visuals for defense_cover](examples/outputs/cover.pdf)
 
 
