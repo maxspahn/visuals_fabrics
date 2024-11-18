@@ -26,10 +26,10 @@ problem:
         high: [5, 3]
   joint_limits:
     lower_limits:
-    - -17.361
-    - -12.2
+    - -17.861
+    - -11.8
     upper_limits:
-    - 17.361
+    - 17.861
     - 12.2
   robot_representation:
     collision_links:
@@ -79,7 +79,7 @@ obstacles:
     type: box
   box_1:
     geometry:
-      length: 11
+      length: 9
       position:
       - 9.061
       - 8.5
@@ -107,13 +107,13 @@ obstacles:
 setup:
   start_list:
     - [-3.5322, 3.4322]
-    - [14.1288, 3.08898]
+    - [15.1288, 3.08898]
     - [13.77558, -3.4322]
     - [-11.774, 4.57626667]
     - [-7.0644, 8.12287333]
   goal_list:
     - [-15.3062, 8.35168667]
-    - [-2.3548, -9.15253333]
+    - [-2.3548, -11.15253333]
     - [9.4192, -1.14406667]
     - [-16.4836, 0.0]
     - [-4.7096, 9.72456667]
@@ -150,14 +150,14 @@ visuals:
     position:
       obstacle_name: box_1
       offset: [0, 1.0]
-    fontsize: 21
+    fontsize: 23
     rotation: 0
   subtitle:
     text : "Behavior Encoding beyond\nModel Predictive Control"
     position:
       obstacle_name: box_1
       offset: [0, -2]
-    fontsize: 15
+    fontsize: 17
     rotation: 0
   albert:
     img: "img/albert_contours.png"
@@ -169,11 +169,11 @@ visuals:
     img: "img/dinova_contours.png"
     position:
       obstacle_name: sphere_1
-      offset: [-0.5, 0.7]
+      offset: [-0.8, 0.0]
     scale: 0.08
   panda_hand:
     img: "img/panda_hand_contours.png"
     position:
       obstacle_name: sphere_2
-      offset: [0, 0.5]
+      offset: [-0.4, 0.5]
     scale: 0.14
