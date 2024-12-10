@@ -1,0 +1,83 @@
+problem:
+  environment:
+    number_cuboids:
+      dynamic: 0
+      static: 2
+    number_planes: 0
+    number_spheres:
+      dynamic: 0
+      static: 0
+  goal:
+    goal_definition:
+      subgoal0:
+        child_link: 1
+        desired_position:
+        - -0.5
+        - 0.8
+        epsilon: 0.1
+        indices:
+        - 0
+        - 1
+        is_primary_goal: true
+        parent_link: 0
+        type: staticSubGoal
+        weight: 1.0
+        low: [-5, -3]
+        high: [5, 3]
+  joint_limits:
+    lower_limits:
+    - -16
+    - -9
+    upper_limits:
+    - 16
+    - 9
+  robot_representation:
+    collision_links:
+      1:
+        sphere:
+          radius: 0.1
+    self_collision_pairs: {}
+fabrics:
+  limit_geometry: -0.5 / (x ** 1) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2
+  limit_finsler: 1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot**2
+  collision_geometry: -1.2 / (x ** 1) * xdot ** 2
+  collision_finsler:  1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2
+  forcing_type: 'speed-controlled'
+obstacles:
+  box_0:
+    geometry:
+      length: 18.0
+      position:
+      - 0
+      - 2.0
+      - 0.0
+      width: 6.0
+    type: box
+  box_1:
+    geometry:
+      length: 16
+      position:
+      - 0
+      - -4
+      - 0.0
+      width: 2
+    type: box
+setup:
+  start_list:
+    - [-13, -6]
+    - [12.0062, 5.5]
+  goal_list:
+    - [12.0062, -5.35168667]
+    - [-12.5, 3]
+    - [12.0062, -1.5]
+  vel_mag: 3
+  n_start: 15
+  n_goal: 10
+visuals:
+  author:
+    text: ""
+    position:
+      obstacle_name: box_0
+      offset: [0, 0]
+    fontsize: 16
+    rotation: 0
